@@ -18,7 +18,8 @@ public class AdventureData : MonoBehaviour
 
 	public void PlayRandomAudio()
 	{
-		//randomAudios[0].
+		var audios = GetComponents<AudioSource> ();
+		audios[0].Play();
 	}
 }
 
