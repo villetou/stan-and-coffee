@@ -3,17 +3,14 @@ using System.Collections;
 
 public class AdventureManager : MonoBehaviour
 {
+	private int _currentAdventure;
+	private float _adventureStartTime;
+	public AdventureData[] Adventures;
 
-	// Use this for initialization
-	void Start ()
+	public void StartNextAdventure()
 	{
-	
+		_adventureStartTime = Time.realtimeSinceStartup;
 	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	
-	}
+
 }
 

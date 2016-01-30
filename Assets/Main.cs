@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Main : MonoBehaviour {
 
+	public AudioListener AudioListenerInstance;
+
 	// Use this for initialization
 	void Start () {
 	
