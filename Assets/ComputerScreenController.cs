@@ -5,6 +5,7 @@ public class ComputerScreenController : MonoBehaviour {
 
 	private Vector3 originalScale;
 	private bool screenOpened = false; 
+	public Animator anim;
 
 	// Use this for initialization
 	void Start () {
@@ -25,11 +26,11 @@ public class ComputerScreenController : MonoBehaviour {
 
 	void openScreen() {
 		this.screenOpened = true;
-		gameObject.transform.localScale = this.originalScale;
+		anim.SetBool("Open", true);
 	}
 
 	void closeScreen() {
 		this.screenOpened = false;
-		gameObject.transform.localScale = new Vector3(0, 0, 0);
+		anim.SetBool("Open", false);
 	}
 }

@@ -1256,10 +1256,27 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 195106, guid: a5b7c8850c6cc41b9a604a728c8daf65, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 11484378, guid: a5b7c8850c6cc41b9a604a728c8daf65, type: 2}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 2081646714}
+    - target: {fileID: 495922, guid: a5b7c8850c6cc41b9a604a728c8daf65, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495922, guid: a5b7c8850c6cc41b9a604a728c8daf65, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495922, guid: a5b7c8850c6cc41b9a604a728c8daf65, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a5b7c8850c6cc41b9a604a728c8daf65, type: 2}
   m_IsPrefabParent: 0
+--- !u!95 &2081646714 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 9593964, guid: a5b7c8850c6cc41b9a604a728c8daf65,
+    type: 2}
+  m_PrefabInternal: {fileID: 2069616151}
