@@ -3,7 +3,7 @@ using System.Collections;
 
 public class AdventureData : MonoBehaviour
 {
-	public AudioSource[] randomAudios;
+	public GameObject RandomAudios;
 	// Use this for initialization
 	void Start ()
 	{
@@ -18,7 +18,7 @@ public class AdventureData : MonoBehaviour
 
 	public void PlayRandomAudio()
 	{
-		var audios = GetComponents<AudioSource> ();
+		var audios = RandomAudios.GetComponents<AudioSource> ();
 		audios[Random.Range(0,audios.Length)].Play();
 	}
 }

@@ -3,7 +3,9 @@ using System.Collections;
 
 public class HeroController : MonoBehaviour {
 
+	public AdventureManager AdventureManager;
 	public DoorView[] Doors;
+	public CoffeeMakerView CoffeeMaker;
 	// Use this for initialization
 	void Start () {
 	
@@ -20,6 +22,9 @@ public class HeroController : MonoBehaviour {
 					}
 				}
 
+			}
+			if (CoffeeMaker.GetComponent<BoxCollider2D> ().IsTouching (gameObject.GetComponent<BoxCollider2D> ())) {
+				AdventureManager.InteractWithCoffeeMaker ();	
 			}
 		}
 		if (Input.GetKeyDown (KeyCode.DownArrow)) {
