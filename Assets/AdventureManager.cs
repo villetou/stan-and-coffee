@@ -3,10 +3,16 @@ using System.Collections;
 
 public class AdventureManager : MonoBehaviour
 {
-	private int _currentAdventure = 0;
+	private int _currentAdventure = -1;
 	private float _adventureStartTime;
+	private float _lastCoffeineDiminishTime;
 	private float _nextSoundTime;
 	public AdventureData[] Adventures;
+
+	void Start()
+	{
+		StartNextAdventure ();
+	}
 
 	void Update()
 	{
@@ -18,8 +24,10 @@ public class AdventureManager : MonoBehaviour
 
 	public void StartNextAdventure()
 	{
+		_currentAdventure++;
 		_adventureStartTime = Time.realtimeSinceStartup;
 		QueueNextSound ();
+		_lastCoffeineDiminishTime = Time.realtimeSinceStartup;
 	}
 
 	private void QueueNextSound()
