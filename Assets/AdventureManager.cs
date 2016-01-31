@@ -70,12 +70,18 @@ public class AdventureManager : MonoBehaviour
 		if (adventure.SuccessAudio) {
 			adventure.SuccessAudio.Play ();
 		}
+		if (adventure.RepeatingLevelAudio) {
+			adventure.RepeatingLevelAudio.Stop ();
+		}
 		StartNextAdventure ();
 	}
 
 	public void StartNextAdventure()
 	{
 		_currentAdventure++;
+		if (Adventures.Length <= _currentAdventure) {
+			return;
+		}
 		var adventure = Adventures [_currentAdventure];
 		_adventureStartTime = Time.realtimeSinceStartup;
 		QueueNextSound ();
