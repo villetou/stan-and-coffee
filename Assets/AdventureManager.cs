@@ -14,6 +14,7 @@ public class AdventureManager : MonoBehaviour
 	public GameObject CoffeeSoundNormal;
 	public GameObject CoffeeSoundBad;
 	public GameObject CoffeeSoundCritical;
+	public CoffeeLevelUI CoffeeLevelUI;
 
 	void Start()
 	{
@@ -33,14 +34,29 @@ public class AdventureManager : MonoBehaviour
 		}
 		if (Time.realtimeSinceStartup > _lastCoffeineDiminishTime + 4) {
 			_caffeineLevel--;
+			UpdateCoffeeLevelUi ();
 			_lastCoffeineDiminishTime = Time.realtimeSinceStartup;
 		}
 
 	}
 
+	private void UpdateCoffeeLevelUi()
+	{
+		CoffeeLevelUI.CaffineBar.transform.localScale = new Vector3(_caffeineLevel / 30f, 1f, 1f);
+		if (_caffeineLevel < 10) {
+			CoffeeLevelUI.CaffineBar.color = CoffeeLevelUI.CriticalColor;
+		} else if (_caffeineLevel < 20) {
+			CoffeeLevelUI.CaffineBar.color = CoffeeLevelUI.BadColor;
+
+		} else {
+			CoffeeLevelUI.CaffineBar.color = CoffeeLevelUI.NormalColor;
+		}
+	}
+
 	public void InteractWithCoffeeMaker()
 	{
 		_caffeineLevel = MAX_CAFFEINE_LEVEL;
+		UpdateCoffeeLevelUi ();
 	}
 
 	public void StartNextAdventure()
