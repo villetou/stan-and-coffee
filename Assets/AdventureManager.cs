@@ -69,9 +69,14 @@ public class AdventureManager : MonoBehaviour
 		var adventure = Adventures [_currentAdventure];
 		if (adventure.SuccessAudio) {
 			adventure.SuccessAudio.Play ();
+			// No coffee blabbering on top of this
+			_nextCoffeeSoundTime += 10f;
 		}
 		if (adventure.RepeatingLevelAudio) {
 			adventure.RepeatingLevelAudio.Stop ();
+		}
+		if (adventure.TakeTargetItem) {
+			adventure.TargetItem.SetActive (false);
 		}
 		StartNextAdventure ();
 	}
