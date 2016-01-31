@@ -76,6 +76,9 @@ public class AdventureManager : MonoBehaviour
 	public void StartNextAdventure()
 	{
 		_currentAdventure++;
+		if (Adventures.Length <= _currentAdventure) {
+			return;
+		}
 		var adventure = Adventures [_currentAdventure];
 		_adventureStartTime = Time.realtimeSinceStartup;
 		QueueNextSound ();
