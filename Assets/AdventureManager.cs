@@ -33,13 +33,15 @@ public class AdventureManager : MonoBehaviour
 			
 			PlayAndQueueCoffeeSound ();
 		}
-		if (Time.realtimeSinceStartup > _lastCoffeineDiminishTime + 4) {
+		if (Time.realtimeSinceStartup > _lastCoffeineDiminishTime + 3) {
 			_caffeineLevel--;
 			UpdateCoffeeLevelUi ();
 			_lastCoffeineDiminishTime = Time.realtimeSinceStartup;
 		}
 		if (Input.GetKeyDown (KeyCode.UpArrow)) {
-			
+			if (Hero.gameObject.GetComponent<BoxCollider2D> ().IsTouching(Adventures [_currentAdventure].TargetItem.GetComponent<BoxCollider2D> ())) {
+				AdventureSuccessful ();
+			}
 		}
 	}
 
@@ -62,12 +64,25 @@ public class AdventureManager : MonoBehaviour
 		UpdateCoffeeLevelUi ();
 	}
 
+	private void AdventureSuccessful()
+	{
+		var adventure = Adventures [_currentAdventure];
+		if (adventure.SuccessAudio) {
+			adventure.SuccessAudio.Play ();
+		}
+		StartNextAdventure ();
+	}
+
 	public void StartNextAdventure()
 	{
 		_currentAdventure++;
+		var adventure = Adventures [_currentAdventure];
 		_adventureStartTime = Time.realtimeSinceStartup;
 		QueueNextSound ();
 		_lastCoffeineDiminishTime = Time.realtimeSinceStartup;
+		if (adventure.RepeatingLevelAudio) {
+			adventure.RepeatingLevelAudio.Play ();
+		}
 	}
 
 	private void QueueNextSound()

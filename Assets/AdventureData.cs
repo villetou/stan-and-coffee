@@ -5,6 +5,8 @@ public class AdventureData : MonoBehaviour
 {
 	public GameObject TargetItem;
 	public GameObject RandomAudios;
+	public AudioSource SuccessAudio;
+	public AudioSource RepeatingLevelAudio;
 	// Use this for initialization
 	void Start ()
 	{
