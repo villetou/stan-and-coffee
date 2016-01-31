@@ -16,7 +16,8 @@ public class AdventureManager : MonoBehaviour
 	public GameObject CoffeeSoundBad;
 	public GameObject CoffeeSoundCritical;
 	public CoffeeLevelUI CoffeeLevelUI;
-
+	public AudioSource SuccessSound;
+	public SpriteRenderer HellImage;
 	void Start()
 	{
 		_caffeineLevel = MAX_CAFFEINE_LEVEL;
@@ -56,6 +57,7 @@ public class AdventureManager : MonoBehaviour
 		} else {
 			CoffeeLevelUI.CaffineBar.color = CoffeeLevelUI.NormalColor;
 		}
+		HellImage.color = new Color(1,1,1,1f - _caffeineLevel / 30f);
 	}
 
 	public void InteractWithCoffeeMaker()
@@ -77,6 +79,9 @@ public class AdventureManager : MonoBehaviour
 		}
 		if (adventure.TakeTargetItem) {
 			adventure.TargetItem.SetActive (false);
+		}
+		if (adventure.PlayGeneralSuccessSound) {
+			SuccessSound.Play ();
 		}
 		StartNextAdventure ();
 	}
