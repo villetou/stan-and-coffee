@@ -70,7 +70,7 @@ public class AdventureManager : MonoBehaviour
 		if (adventure.SuccessAudio) {
 			adventure.SuccessAudio.Play ();
 			// No coffee blabbering on top of this
-			_nextCoffeeSoundTime += 10f;
+			_nextCoffeeSoundTime += 15f;
 		}
 		if (adventure.RepeatingLevelAudio) {
 			adventure.RepeatingLevelAudio.Stop ();
