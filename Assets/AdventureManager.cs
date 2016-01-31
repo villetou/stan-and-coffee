@@ -18,6 +18,8 @@ public class AdventureManager : MonoBehaviour
 	public CoffeeLevelUI CoffeeLevelUI;
 	public AudioSource SuccessSound;
 	public SpriteRenderer HellImage;
+	public GameObject YouDied;
+	public GameObject YouWon;
 	void Start()
 	{
 		_caffeineLevel = MAX_CAFFEINE_LEVEL;
@@ -26,7 +28,7 @@ public class AdventureManager : MonoBehaviour
 
 	void Update()
 	{
-		if (Time.realtimeSinceStartup > _nextSoundTime) {
+		if (Time.realtimeSinceStartup > _nextSoundTime && Adventures.Length > _currentAdventure) {
 			Adventures [_currentAdventure].PlayRandomAudio();
 			QueueNextSound ();
 		}
@@ -56,6 +58,9 @@ public class AdventureManager : MonoBehaviour
 
 		} else {
 			CoffeeLevelUI.CaffineBar.color = CoffeeLevelUI.NormalColor;
+		}
+		if (_caffeineLevel <= 0) {
+			YouDied.SetActive (true);
 		}
 		HellImage.color = new Color(1,1,1,1f - _caffeineLevel / 30f);
 	}
@@ -90,6 +95,7 @@ public class AdventureManager : MonoBehaviour
 	{
 		_currentAdventure++;
 		if (Adventures.Length <= _currentAdventure) {
+			YouWon.SetActive (true);
 			return;
 		}
 		var adventure = Adventures [_currentAdventure];
