@@ -763,6 +763,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!1 &598078911 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 103456, guid: d8a259499b9c44d9da7475886c22e186, type: 2}
+  m_PrefabInternal: {fileID: 1112160004}
 --- !u!1 &758569375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1659,6 +1663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   jump: 0
+  spriterObj: {fileID: 598078911}
   moveForce: 400
   maxSpeed: 5
   jumpClips: []
