@@ -3,6 +3,7 @@ using System.Collections;
 
 public class AdventureManager : MonoBehaviour
 {
+	public HeroController Hero;
 	public int MAX_CAFFEINE_LEVEL = 30;
 	private int _caffeineLevel;
 	private int _currentAdventure = -1;
@@ -37,7 +38,9 @@ public class AdventureManager : MonoBehaviour
 			UpdateCoffeeLevelUi ();
 			_lastCoffeineDiminishTime = Time.realtimeSinceStartup;
 		}
-
+		if (Input.GetKeyDown (KeyCode.UpArrow)) {
+			
+		}
 	}
 
 	private void UpdateCoffeeLevelUi()

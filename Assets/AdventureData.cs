@@ -3,6 +3,7 @@ using System.Collections;
 
 public class AdventureData : MonoBehaviour
 {
+	public GameObject TargetItem;
 	public GameObject RandomAudios;
 	// Use this for initialization
 	void Start ()
