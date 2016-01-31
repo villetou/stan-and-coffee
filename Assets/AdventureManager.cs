@@ -34,7 +34,7 @@ public class AdventureManager : MonoBehaviour
 			
 			PlayAndQueueCoffeeSound ();
 		}
-		if (Time.realtimeSinceStartup > _lastCoffeineDiminishTime + 3) {
+		if (Time.realtimeSinceStartup > _lastCoffeineDiminishTime + 2) {
 			_caffeineLevel--;
 			UpdateCoffeeLevelUi ();
 			_lastCoffeineDiminishTime = Time.realtimeSinceStartup;
