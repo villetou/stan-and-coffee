@@ -6,6 +6,7 @@ public class HeroController : MonoBehaviour {
 	public AdventureManager AdventureManager;
 	public DoorView[] Doors;
 	public CoffeeMakerView CoffeeMaker;
+	public AudioSource CoffeeGainSound;
 	// Use this for initialization
 	void Start () {
 	
@@ -25,6 +26,7 @@ public class HeroController : MonoBehaviour {
 			}
 			if (CoffeeMaker.GetComponent<BoxCollider2D> ().IsTouching (gameObject.GetComponent<BoxCollider2D> ())) {
 				AdventureManager.InteractWithCoffeeMaker ();	
+				CoffeeGainSound.Play ();
 			}
 		}
 		if (Input.GetKeyDown (KeyCode.DownArrow)) {
