@@ -20,6 +20,8 @@ public class AdventureManager : MonoBehaviour
 	public SpriteRenderer HellImage;
 	public GameObject YouDied;
 	public GameObject YouWon;
+	public AudioSource MusicGood;
+	public AudioSource MusicEvil;
 	void Start()
 	{
 		_caffeineLevel = MAX_CAFFEINE_LEVEL;
@@ -62,6 +64,8 @@ public class AdventureManager : MonoBehaviour
 		if (_caffeineLevel <= 0) {
 			YouDied.SetActive (true);
 		}
+		MusicGood.volume = _caffeineLevel / 30f;
+		MusicEvil.volume = 1f - _caffeineLevel / 30f;
 		HellImage.color = new Color(1,1,1,1f - _caffeineLevel / 30f);
 	}
 
